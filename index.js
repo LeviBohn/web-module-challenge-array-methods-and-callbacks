@@ -85,7 +85,9 @@ Use the higher-order function getWinnersByYear to do the following:
  */
 
 function getWinnersByYear(array, getFinalsCB, getYearsCB, getWinnersCB) {
-    return `In ${getYears}, ${getWinners} won the world cup!`
+    const winners = getWinnersCB(array, getFinalsCB);
+    const years = getYearsCB(array, getFinalsCB);
+    return winners.map((item, index) => `In ${years[index]}, ${item} won the world cup!`);
 }
 console.log ('task 5:', getWinnersByYear(fifaData, getFinals, getYears, getWinners));
 
